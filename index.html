@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eternal Kings – Mời bạn chơi thử</title>
+<link rel="icon" href="icon.jpg">
+<meta property="og:title" content="Eternal Kings – Mời bạn chơi thử">
+<meta property="og:description" content="Cai trị vương quốc, đi vi hành, truyền ngôi. Bản chơi thử cho Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #1b1030; --panel: #2b1c48; --panel2: #38245c;
+    --gold: #ffcf4a; --gold-soft: #ffe9a8; --red: #b32d3f; --red-deep: #7c1b2e;
+    --green: #55c43a; --green-deep: #2f7f1e; --text: #fff7e8; --muted: #cdbfe6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--night); color: var(--text); font: 500 18px/1.55 "Baloo 2", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding-bottom: 96px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; text-align: center; padding: 34px 16px 40px;
+    background: radial-gradient(120% 90% at 50% 0%, #ffb23e 0%, #d8532f 34%, var(--red) 55%, var(--red-deep) 74%, var(--night) 100%); }
+  .hero::before { content: ""; position: absolute; left: 50%; top: 110px; width: 900px; height: 900px; transform: translate(-50%, -50%);
+    background: repeating-conic-gradient(rgba(255,255,255,.10) 0 9deg, transparent 9deg 20deg);
+    -webkit-mask: radial-gradient(circle, #000 0, transparent 62%); mask: radial-gradient(circle, #000 0, transparent 62%);
+    animation: spin 60s linear infinite; }
+  .hero > * { position: relative; }
+  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  .icon { width: 148px; height: 148px; border-radius: 34px; border: 4px solid var(--gold); box-shadow: 0 14px 34px rgba(0,0,0,.45); }
+  h1 { font-size: 44px; font-weight: 800; line-height: 1.08; margin-top: 16px; color: var(--gold-soft); text-shadow: 0 4px 0 rgba(90,20,10,.65); }
+  .tagline { font-size: 20px; font-weight: 700; margin-top: 6px; text-shadow: 0 2px 4px rgba(0,0,0,.4); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0 20px; }
+  .chip { background: rgba(20,8,40,.55); border: 1px solid rgba(255,233,168,.45); border-radius: 999px; padding: 3px 14px; font-size: 15px; font-weight: 700; }
+
+  .download { display: inline-block; width: 100%; max-width: 420px; text-decoration: none; color: #fff; font-size: 26px; font-weight: 800; letter-spacing: .5px;
+    padding: 16px 12px; border-radius: 18px; border: 3px solid #c9ff9e; background: linear-gradient(180deg, #74de52, var(--green) 55%, #3fa52a);
+    box-shadow: 0 7px 0 var(--green-deep), 0 16px 28px rgba(0,0,0,.35); text-shadow: 0 2px 0 rgba(0,0,0,.28); }
+  .download:active { transform: translateY(5px); box-shadow: 0 2px 0 var(--green-deep); }
+  .hint { font-size: 15px; margin-top: 16px; color: var(--gold-soft); }
+
+  .alert { max-width: 520px; margin: 0 auto 16px; border-radius: 14px; padding: 12px 16px; font-weight: 700; font-size: 16px; text-align: left; }
+  .ios { background: #5a0f1b; border: 2px solid #ff8a8a; }
+  .inapp { background: #6b4200; border: 2px solid var(--gold); }
+  .hidden { display: none; }
+
+  h2 { font-size: 28px; font-weight: 800; color: var(--gold); text-align: center; margin: 34px 0 14px; }
+
+  /* ---------- screenshots ---------- */
+  .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 18px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .shots::-webkit-scrollbar { display: none; }
+  .carousel { position: relative; }
+  .arrow { position: absolute; top: calc(50% - 32px); width: 48px; height: 48px; border-radius: 50%; border: 3px solid #fff0b0; background: linear-gradient(180deg, #ffe27a, #e6a817); color: #4a1d05; font: 800 30px/1 "Baloo 2", system-ui, sans-serif; cursor: pointer; box-shadow: 0 6px 16px rgba(0,0,0,.45); z-index: 2; }
+  .arrow.prev { left: 8px; }
+  .arrow.next { right: 8px; }
+  .arrow:disabled { display: none; }
+  .shots figure { flex: 0 0 230px; scroll-snap-align: center; border-radius: 20px; overflow: hidden; background: linear-gradient(180deg, var(--red), var(--red-deep)); border: 3px solid var(--gold); box-shadow: 0 10px 24px rgba(0,0,0,.4); display: flex; flex-direction: column; }
+  .shots figcaption { text-align: center; font-weight: 800; font-size: 17px; line-height: 1.2; padding: 10px 8px; color: var(--gold-soft); min-height: 62px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+  .shots img { display: block; width: 100%; height: 420px; object-fit: cover; object-position: top; cursor: zoom-in; }
+  .swipe { text-align: center; color: var(--muted); font-size: 15px; }
+
+  /* ---------- features ---------- */
+  .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .card { background: linear-gradient(160deg, var(--panel2), var(--panel)); border-radius: 18px; padding: 16px; border: 1px solid rgba(255,207,74,.28); display: flex; gap: 14px; align-items: flex-start; }
+  .card .em { font-size: 34px; line-height: 1; }
+  .card h3 { font-size: 20px; color: var(--gold-soft); line-height: 1.25; }
+  .card p { font-size: 16px; color: var(--muted); }
+
+  /* ---------- steps ---------- */
+  ol { list-style: none; counter-reset: step; }
+  ol li { counter-increment: step; position: relative; background: var(--panel); border-radius: 16px; padding: 14px 14px 14px 66px; margin-bottom: 12px; border-left: 5px solid var(--gold); }
+  ol li::before { content: counter(step); position: absolute; left: 14px; top: 14px; width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff0b0, var(--gold) 60%, #d99a12); color: #4a1d05; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+  .small { display: block; font-size: 15px; color: var(--muted); margin-top: 3px; }
+  b { color: var(--gold-soft); }
+  details { background: var(--panel); border-radius: 14px; padding: 13px 16px; margin-bottom: 10px; }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { margin-top: 8px; font-size: 16px; color: var(--muted); }
+  footer { text-align: center; color: var(--muted); font-size: 14px; margin-top: 30px; padding: 0 16px; }
+
+  /* ---------- bar that follows on phones ---------- */
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px 16px; background: linear-gradient(180deg, rgba(27,16,48,0), var(--night) 35%); text-align: center; transform: translateY(110%); transition: transform .25s; }
+  .bar.show { transform: translateY(0); }
+  .bar .download { font-size: 21px; padding: 11px; }
+
+  /* ---------- zoomed picture ---------- */
+  .zoom { position: fixed; inset: 0; background: rgba(8,3,18,.94); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 10; cursor: zoom-out; }
+  .zoom.show { display: flex; }
+  .zoom img { max-width: 100%; max-height: 100%; border-radius: 14px; }
+  @media (prefers-reduced-motion: reduce) { .hero::before { animation: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div id="ios" class="alert ios hidden">Máy bạn là iPhone hoặc iPad nên không cài được game này. Bạn cần điện thoại Android.</div>
+  <div id="inapp" class="alert inapp hidden">Bạn đang mở trang trong Zalo hoặc Facebook nên có thể không tải được. Bấm dấu ⋮ hoặc ⋯ ở góc trên, rồi chọn “Mở bằng trình duyệt”.</div>
+
+  <img class="icon" src="icon.jpg" alt="Biểu tượng Eternal Kings: nhà vua ngồi trên ngai vàng">
+  <h1>Eternal Kings</h1>
+  <p class="tagline">Ngôi vua thì ở lại, còn nhà vua thì không sống mãi</p>
+  <div class="chips">
+    <span class="chip">🤖 Android 9 trở lên</span>
+    <span class="chip">📦 Khoảng 360 MB</span>
+    <span class="chip">🧪 Bản chơi thử</span>
+  </div>
+  <a class="download" id="download" href="#">⬇ TẢI GAME</a>
+  <p class="hint">Nên dùng Wi-Fi. <a href="#cach-cai" style="color:inherit;font-weight:700">Xem cách cài</a></p>
+</header>
+
+<h2>Trong game có gì?</h2>
+<div class="carousel">
+<button type="button" class="arrow prev" id="prev" aria-label="Ảnh trước">‹</button>
+<button type="button" class="arrow next" id="next" aria-label="Ảnh sau">›</button>
+<div class="shots" id="shots">
+  <figure><figcaption>Mỗi lựa chọn một số phận</figcaption><img src="shot1.jpg" alt="Gặp người lạ trên đường và chọn cách phản ứng"></figure>
+  <figure><figcaption>Ra trận cùng triều thần</figcaption><img src="shot2.jpg" alt="Màn chiến đấu"></figure>
+  <figure><figcaption>Thắng trận, nhận thưởng</figcaption><img src="shot3.jpg" alt="Màn chiến thắng"></figure>
+  <figure><figcaption>Xây lâu đài của bạn</figcaption><img src="shot4.jpg" alt="Các phòng trong lâu đài"></figure>
+  <figure><figcaption>Mở đất, thu thuế</figcaption><img src="shot5.jpg" alt="Ruộng và làng sinh ra vàng"></figure>
+  <figure><figcaption>Mở rương may mắn</figcaption><img src="shot6.jpg" alt="Cửa hàng rương"></figure>
+  <figure><figcaption>Vượt tháp thử thách</figcaption><img src="shot7.jpg" alt="Danh sách thử thách"></figure>
+  <figure><figcaption>Sự kiện 7 ngày</figcaption><img src="shot8.jpg" alt="Lễ hội 7 ngày"></figure>
+</div>
+</div>
+<p class="swipe">Vuốt ngang hoặc bấm mũi tên để xem thêm. Bấm vào ảnh để phóng to.</p>
+
+<main class="wrap">
+  <h2>Bạn sẽ làm gì?</h2>
+  <div class="grid">
+    <div class="card"><span class="em">👑</span><div><h3>Làm vua và truyền ngôi</h3><p>Vua có tuổi thọ. Hãy kết hôn, sinh người thừa kế để triều đại tiếp tục.</p></div></div>
+    <div class="card"><span class="em">🧭</span><div><h3>Đi vi hành</h3><p>Gặp thương nhân, phù thuỷ, kẻ cướp. Bạn chọn cách đối đáp, kết quả sẽ khác nhau.</p></div></div>
+    <div class="card"><span class="em">🏰</span><div><h3>Xây lâu đài</h3><p>Mở và nâng cấp các phòng, đưa người phù hợp vào làm việc.</p></div></div>
+    <div class="card"><span class="em">⚔️</span><div><h3>Đánh trận và bang hội</h3><p>Đấu trùm, vượt thử thách, vào bang hội. Đối thủ do máy điều khiển.</p></div></div>
+  </div>
+
+  <h2 id="cach-cai">Cách cài (khoảng 5 phút)</h2>
+  <ol>
+    <li>Bấm nút <b>TẢI GAME</b>.
+      <span class="small">Nếu máy hỏi, chọn <b>Vẫn tải xuống</b>.</span></li>
+    <li>Đợi tải xong rồi bấm <b>Mở</b>.
+      <span class="small">Lỡ tắt mất thì mở ứng dụng <b>Tệp</b> (Quản lý tệp), vào mục <b>Tải về</b>, bấm file <b>ek-debug.apk</b>.</span></li>
+    <li>Nếu máy báo <b>không được phép cài</b>: bấm <b>Cài đặt</b>, bật <b>Cho phép từ nguồn này</b>, rồi bấm nút quay lại.
+      <span class="small">Đây là bước bình thường với game chưa đưa lên CH Play.</span></li>
+    <li>Bấm <b>Cài đặt</b>.
+      <span class="small">Nếu Google Play Protect cảnh báo: bấm <b>Chi tiết thêm</b>, rồi <b>Vẫn cài đặt</b>.</span></li>
+    <li>Mở <b>Eternal Kings</b> và chơi.
+      <span class="small">Bị kẹt hoặc lỗi thì chụp màn hình gửi cho người đã gửi bạn trang này.</span></li>
+  </ol>
+  <p class="swipe">Tên nút có thể hơi khác tuỳ hãng điện thoại.</p>
+
+  <h2>Gặp trục trặc?</h2>
+  <details>
+    <summary>Báo “Ứng dụng chưa được cài đặt”</summary>
+    <p>Nếu máy đã có Eternal Kings (cài từ CH Play), hãy gỡ bản đó rồi cài lại. <b>Lưu ý:</b> gỡ game sẽ mất dữ liệu chơi lưu trong máy. Cũng kiểm tra máy còn trống ít nhất 1,5 GB.</p>
+  </details>
+  <details>
+    <summary>Bấm tải mà không thấy gì</summary>
+    <p>Hãy mở trang này bằng <b>Chrome</b>. Kéo thanh thông báo xuống để xem file có đang tải không.</p>
+  </details>
+  <details>
+    <summary>Chơi xong muốn xoá</summary>
+    <p>Gỡ như ứng dụng bình thường. Sau đó có thể tắt lại mục <b>Cho phép từ nguồn này</b> đã bật ở bước 3, và xoá file ek-debug.apk trong mục Tải về.</p>
+  </details>
+</main>
+
+<footer>Đây là bản chơi thử nên có thể còn lỗi. Cảm ơn bạn đã giúp chơi thử! 💛<br>Ảnh chụp trong game, một số chữ trong ảnh còn là tiếng Anh.</footer>
+
+<div class="bar" id="bar"><a class="download" id="download2" href="#">⬇ TẢI GAME</a></div>
+<div class="zoom" id="zoom" role="dialog" aria-label="Ảnh phóng to"><img alt=""></div>
+
+<script>
+  // The APK is attached to the newest GitHub Release of the repository that serves this page,
+  // so the link is worked out from the page address: https://<user>.github.io/<repo>/
+  (function () {
+    var buttons = [document.getElementById("download"), document.getElementById("download2")];
+    var host = location.hostname;
+    var url = null;
+    if (host.endsWith(".github.io")) {
+      var user = host.slice(0, -".github.io".length);
+      var repo = location.pathname.split("/").filter(Boolean)[0] || host;
+      url = "https://github.com/" + user + "/" + repo + "/releases/latest/download/ek-debug.apk";
+    }
+    buttons.forEach(function (b) {
+      if (url) { b.href = url; return; }
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        alert("Nút tải chỉ hoạt động khi trang đã được đưa lên GitHub Pages.");
+      });
+    });
+
+    var ua = navigator.userAgent || "";
+    if (/iPhone|iPad|iPod/i.test(ua)) document.getElementById("ios").classList.remove("hidden");
+    if (/Zalo|FBAN|FBAV|Instagram|Messenger/i.test(ua)) document.getElementById("inapp").classList.remove("hidden");
+
+    // the bottom button shows once the big one has scrolled away
+    var bar = document.getElementById("bar");
+    var big = buttons[0];
+    function onScroll() { bar.classList.toggle("show", big.getBoundingClientRect().bottom < 0); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    var shots = document.getElementById("shots");
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+    function arrows() {
+      prev.disabled = shots.scrollLeft <= 4;
+      next.disabled = shots.scrollLeft >= shots.scrollWidth - shots.clientWidth - 4;
+    }
+    prev.addEventListener("click", function () { shots.scrollBy({ left: -244, behavior: "smooth" }); });
+    next.addEventListener("click", function () { shots.scrollBy({ left: 244, behavior: "smooth" }); });
+    shots.addEventListener("scroll", arrows, { passive: true });
+    window.addEventListener("resize", arrows);
+    arrows();
+
+    var zoom = document.getElementById("zoom");
+    var zoomed = zoom.querySelector("img");
+    document.getElementById("shots").addEventListener("click", function (e) {
+      if (e.target.tagName !== "IMG") return;
+      zoomed.src = e.target.src;
+      zoomed.alt = e.target.alt;
+      zoom.classList.add("show");
+    });
+    zoom.addEventListener("click", function () { zoom.classList.remove("show"); });
+  })();
+</script>
+</body>
+</html>
